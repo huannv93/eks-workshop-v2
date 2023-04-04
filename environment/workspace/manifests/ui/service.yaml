@@ -16,6 +16,7 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+  # service selector toi pod co lables
   selector:
     app.kubernetes.io/name: ui
     app.kubernetes.io/instance: ui

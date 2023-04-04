@@ -8,6 +8,7 @@ metadata:
 spec:
   replicas: 1
   selector:
+    # pod select container with lables nhu duoi:
     matchLabels:
       app.kubernetes.io/name: ui
       app.kubernetes.io/instance: ui
@@ -18,6 +19,7 @@ spec:
         prometheus.io/path: /actuator/prometheus
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
+      # create lables cho container 
       labels:
         app.kubernetes.io/name: ui
         app.kubernetes.io/instance: ui
