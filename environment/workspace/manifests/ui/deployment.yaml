@@ -25,6 +25,9 @@ spec:
         app.kubernetes.io/created-by: eks-workshop
     spec:
       serviceAccountName: ui
+      #Chỉ định userid và groupid cho container. 
+      #Ngăn chặn container run với root user.
+      #https://viblo.asia/p/kubernetes-series-bai-14-podsecuritypolicies-networkpolicy-security-cho-cluster-nodes-va-network-djeZ1d1gKWz
       securityContext:
         fsGroup: 1000
       containers:
@@ -35,6 +38,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: ui
+          #
           securityContext:
             capabilities:
               add:
@@ -57,8 +61,10 @@ spec:
             initialDelaySeconds: 45
             periodSeconds: 20
           resources:
+          #https://viblo.asia/p/kubernetes-series-bai-15-quan-ly-va-tinh-toan-tai-nguyen-su-dung-cho-pod-GrLZDB9n5k0
             limits:
               memory: 1.5Gi
+            #nếu ta không chỉ định thuộc tính request, thì mặc định nó sẽ được chỉ định bằng với giá trị của limits.
             requests:
               cpu: 250m
               memory: 1.5Gi
