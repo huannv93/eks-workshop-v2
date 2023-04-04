@@ -8,7 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/healthcheck-path: /actuator/health/liveness
 spec:
-  ingressClassName: alb
+  ingressClassName: alb #if using nginx ingress controler replace : "nginx"
   rules:
   - http:
       paths:

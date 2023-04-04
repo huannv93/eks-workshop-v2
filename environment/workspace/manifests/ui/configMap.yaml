@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: ui
 data:
+  #http://catalog.catalog.svc:80 : catalog : service name, catalog : namespace...example: 'minio.viettq-prod.svc.cluster.local:9000' : minio: svc name, iettq-prod: namespace
   ENDPOINTS_CATALOG: http://catalog.catalog.svc:80
   ENDPOINTS_CARTS: http://carts.carts.svc:80
   ENDPOINTS_ORDERS: http://orders.orders.svc:80
